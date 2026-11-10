@@ -1,0 +1,144 @@
+﻿<html>
+<header>
+	<p class="pt-5 ps-5" style="font-size:15px;font-family:YAD1aU3sLnI,0; color:#183B32 ">WELCOME BACK,</p>
+	<p class="ps-5 " style="font-family:fraunces; color:#183B32; font-size:28px; font-weight:bold">Demo User</p>
+	<p class=" ps-5 " style="font-size:15px;font-family:YAD1aU3sLnI,0; color:#183B32 ">What can we help you with today?</p>
+</header>
+
+<body>
+	<div class=" bg-success-subtle rounded-4 p-4 w-100" style="height: 500px; ">
+		<p class="ps-5 " style="font-family:fraunces; color:#183B32; font-size:22px; font-weight:bold">Your Business Overview</p>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card p-4" style="border-radius:20px;">
+						<div style="background-color:#DFE8EA;
+							width:45px;
+							height:45px;
+							border-radius:12px;
+							display:flex;
+							justify-content:center;
+							align-items:center;">
+
+							<i class="fa-solid fa-calendar-check"
+							   style="color:#426D7B;"></i>
+						</div>
+
+						<h2 class="mt-3" style="font-family:fraunces; color:#183B32; font-weight:bold;">
+							12
+						</h2>
+
+						<h5 style="color:#183B32; font-weight:bold;">
+							Total Bookings
+						</h5>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="card p-4" style="border-radius:20px;">
+						<div style="background-color:#F7E8CC;
+							width:45px;
+							height:45px;
+							border-radius:12px;
+							display:flex;
+							justify-content:center;
+							align-items:center;">
+
+							<i class="fa-solid fa-clock"
+							   style="color:#956337;"></i>
+						</div>
+
+						<h2 class="mt-3" style="font-family:fraunces; color:#183B32; font-weight:bold;">
+							4
+						</h2>
+
+						<h5 style="color:#183B32; font-weight:bold;">
+							Pending Requests
+						</h5>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				
+				<div class="col-md-6">
+					<div class="card p-4 mt-3" style="border-radius:20px;">
+						<div style="background-color:#DCE9D8;
+							width:45px;
+							height:45px;
+							border-radius:12px;
+							display:flex;
+							justify-content:center;
+							align-items:center;">
+
+							<i class="fa-solid fa-check"
+							   style="color:#426D7B;"></i>
+						</div>
+
+						<h2 class="mt-3" style="font-family:fraunces; color:#183B32; font-weight:bold;">
+							8
+						</h2>
+
+						<h5 style="color:#183B32; font-weight:bold;">
+							Completed Jobs
+						</h5>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card p-4 mt-3" style="border-radius:20px;">
+						<div style="background-color:#F7E8CC;
+							width:45px;
+							height:45px;
+							border-radius:12px;
+							display:flex;
+							justify-content:center;
+							align-items:center;">
+
+							<i class="fa-solid fa-star"
+							   style="color:#956337;"></i>
+						</div>
+
+						<h2 class="mt-3" style="font-family:fraunces; color:#183B32; font-weight:bold;">
+							4.8
+						</h2>
+
+						<h5 style="color:#183B32; font-weight:bold;">
+							Customer Rating
+						</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>
+@section selected {
+	<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow ">
+		<div style="background-color:#183B32;   " class="container-fluid w-100">
+			<a class="navbar-brand ms-3" asp-area="" asp-controller="Home" asp-action="Index" style="color:white;font-weight:bold;font-size:20px ">SkillLink</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+				<ul class="navbar-nav flex-grow-1">
+					<li class="nav-item">
+						<a class="nav-link text-light ms-3" asp-area="" asp-controller="Home" asp-action="HomeForCustomer">
+							<span class="badge  text-light " style="background-color:#D9E8AE;color:white;font-weight:bold;font-size:14px">Home</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light ms-3" asp-area="" asp-controller="Home" asp-action="Requests" style="color:white;font-weight:bold; font-size:16px">Requests</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light ms-3" asp-area="" asp-controller="Home" asp-action="MyBookings" style=" color:white;font-weight:bold; font-size:16px">My Bookings</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light ms-3" asp-area="" asp-controller="Home" asp-action="Profile" style="color:white;font-weight:bold; font-size:16px">Profile</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+}

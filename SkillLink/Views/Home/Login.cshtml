@@ -1,0 +1,55 @@
+﻿<html>
+    <body>
+    <section style="background-color:#F7F5EF; min-height:850px; padding-top:100px;">
+
+        <div style="background-color:white; width:400px;"
+             class="mx-auto">
+            <h2 class="d-flex flex-row justify-content-center pt-2" style="color:#183B32">LOGIN </h2>
+            <div class="form-field pt-20">
+                <label class="form-label ms-2" style="color:#183B32; font-size:18px; font-weight:bold;">Email address</label>
+                <input type="email" class="form-control"  placeholder="name@example.com">
+                <label class="form-label ms-2" style="color:#183B32; font-size:18px; font-weight:bold;">Password</label>
+                <input type="password" class="form-control " placeholder="xxxxxxxx">
+                <div class="d-flex">
+                    <a  class="mt-4 ms-2" asp-controller="Home" asp-action="SignUp">signup</a>
+                    <button type="button" class="btn btn-primary ms-auto mt-4 mb-3">
+                        Login
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    </body>
+</html>
+@section selected {
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow ">
+        <div style="background-color:#183B32;   " class="container-fluid w-100">
+            <a class="navbar-brand ms-3" asp-area="" asp-controller="Home" asp-action="Index" style="color:white;font-weight:bold;font-size:20px ">SkillLink</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Home" asp-action="HomeForCustomer" style="color:white;font-weight:bold;font-size:16px ">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Home" asp-action="Requests" style="color:white;font-weight:bold; font-size:16px">Requests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Home" asp-action="MyBookings" style=" color:white;font-weight:bold; font-size:16px">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Home" asp-action="Profile" style="color:white;font-weight:bold; font-size:16px">Profile</a>
+                    </li>
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Login" style="color:white;font-weight:bold; font-size:16px"><span class="badge  text-light " style="background-color:#D9E8AE;color:white;font-weight:bold;font-size:14px">Login</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+}

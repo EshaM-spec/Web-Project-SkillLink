@@ -1,0 +1,125 @@
+﻿<html>
+    <header>
+    <p class="pt-5 ps-5" style="font-size:15px;font-family:YAD1aU3sLnI,0; color:#183B32 ">WELCOME BACK,</p>
+    <p class ="ps-5 " style="font-family:fraunces; color:#183B32; font-size:28px; font-weight:bold">Demo User</p>
+    <p class=" ps-5 " style="font-size:15px;font-family:YAD1aU3sLnI,0; color:#183B32 ">What can we help you with today?</p>
+    </header>
+    <body>
+    <p class=" pt-5 ps-5" style="font-size:15px;font-family:YAD1aU3sLnI,0; color:#183B32 ">What we do</p>
+    <div class="d-flex justify-content-between align-items-center ps-5 pe-5">
+
+        <p style="font-family:fraunces; color:#183B32; font-size:24px; font-weight:bold">
+            Services for your home
+        </p>
+
+        <span style="font-family:YAD1aU3sLnI,0; font-size:14px;">
+            Find the kind of support that fits your space.
+        </span>
+
+    </div>
+    <div class="container ">
+        <div class="row justify-content-between">
+            <div class="card p-4" style="border-radius:20px; width:400px">
+
+                <div style="background-color:#DCE9D8;
+                    width:40px;
+                    height:40px;
+                    border-radius:12px;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;">
+
+                    <i class="fa-solid fa-wrench"
+                       style="color:#183B32;"></i>
+
+                </div>
+                <a asp-area="" asp-controller="Home" asp-action="MaintenanceServices" style="text-decoration: none;">
+               <h5 class="mt-4" style="font-family:fraunces; color:#183B32 ;font-weight:bold ">Maintenance Services</h5>
+               </a>
+                <p>Practical care and repairs to keep everything running smoothly.</p>
+
+            </div>
+            <div class="card p-4" style="border-radius:20px; width:400px">
+
+                <div style="background-color:#F7E8CC;
+                    width:40px;
+                    height:40px;
+                    border-radius:12px;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;">
+
+                    <i class="fa-solid fa-star"
+                       style="color:#956337;"></i>
+
+                </div>
+
+                <a asp-area="" asp-controller="Home" asp-action="CleaningServices" style="text-decoration: none;">
+                    <h5 class="mt-4" style="font-family:fraunces; color:#183B32 ;font-weight:bold">
+                        Cleaning Services
+                    </h5>
+                </a>
+
+                <p>Fresh, welcoming spaces with cleaning that makes a difference.</p>
+
+            </div>
+            <div class="card p-4 " style="border-radius:20px; width:400px">
+
+                <div style="background-color:#DFE8EA;
+                    width:40px;
+                    height:40px;
+                    border-radius:12px;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;">
+
+                    <i class="fa-solid fa-house"
+                       style="color:#426D7B;"></i>
+
+                </div>
+                <a asp-area="" asp-controller="Home" asp-action="ConstructionServices" style="text-decoration: none;">
+            <h5 class="mt-4" style="font-family:fraunces; color:#183B32 ;font-weight:bold">
+                    Construction Services
+                </h5>
+            </a>
+
+                <p>From improvements to bigger builds, make room for what’s next.</p>
+
+            </div>
+        </div>
+
+    </div>
+
+    </body>
+    
+</html>
+
+@section selected{
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow ">
+        <div style="background-color:#183B32;   " class="container-fluid w-100">
+            <a class="navbar-brand ms-3" asp-area="" asp-controller="Home" asp-action="Index" style="color:white;font-weight:bold;font-size:20px ">SkillLink</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Home" asp-action="HomeForCustomer">
+                            <span class="badge  text-light " style="background-color:#D9E8AE;color:white;font-weight:bold;font-size:14px">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Home" asp-action="Requests" style="color:white;font-weight:bold; font-size:16px">Requests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Home" asp-action="MyBookings" style=" color:white;font-weight:bold; font-size:16px">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Home" asp-action="Profile" style="color:white;font-weight:bold; font-size:16px">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+}
