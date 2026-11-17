@@ -1,0 +1,98 @@
+﻿@model List<Service>
+
+<html>
+<body style="background-color:#F7F5EF;">
+
+    <p class="pt-5 mb-4"
+       style="font-size:22px;
+        font-family:YAD1aU3sLnI,0;
+        color:#183B32;
+        font-weight:bold;
+        text-align:center;
+        letter-spacing:1px;">
+        MAINTENANCE SERVICES
+    </p>
+
+    <div class="container-fluid mt-3 px-5">
+
+        @foreach (Service s in Model)
+        {
+            <div class="row mt-3 mb-3 py-3 align-items-center"
+                 style="background-color:#DFE8EA;
+                border-radius:12px;
+                margin-left:5px;
+                margin-right:5px;
+                box-shadow:0 2px 6px rgba(24,59,50,0.08);">
+
+                <div class="col">
+                    <p class="ps-4 mb-0"
+                       style="font-family:fraunces;
+                        color:#183B32;
+                        font-size:26px;
+                        font-weight:bold;">
+                        @s.ServiceName
+                    </p>
+                </div>
+
+                <div class="col-auto me-4">
+                    <form asp-controller="Customer"
+                          asp-action="CreateRequest"
+                          method="get">
+
+                        <input type="hidden" name="serviceId" value="@s.Id" />
+
+                        <button type="submit" class="btn px-4 py-2"
+                                style="background-color:#183B32;
+                            color:white;
+                            font-weight:bold;
+                            border-radius:7px;
+                            border:none;">
+                            Request
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        }
+    </div>
+
+</body>
+</html>
+
+@section selected {
+	<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow ">
+		<div style="background-color:#183B32;   " class="container-fluid w-100">
+			<a class="navbar-brand ms-3" asp-area="" asp-controller="" asp-action="Home" style="color:white;font-weight:bold;font-size:20px ">SkillLink</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+				<ul class="navbar-nav flex-grow-1">
+					<li class="nav-item">
+						<a class="nav-link text-light ms-3" asp-area="" asp-controller="Customer" asp-action="Home">
+							<span class="badge  text-light " style="background-color:#D9E8AE;color:white;font-weight:bold;font-size:14px">Home</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light ms-3" asp-area="" asp-controller="Customer" asp-action="Requests" style="color:white;font-weight:bold; font-size:16px">Requests</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light ms-3" asp-area="" asp-controller="Customer" asp-action="MyBookings" style=" color:white;font-weight:bold; font-size:16px">My Bookings</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light ms-3" asp-area="" asp-controller="Customer" asp-action="Profile" style="color:white;font-weight:bold; font-size:16px">Profile</a>
+					</li>
+					<li class="nav-item ms-auto">
+						<form asp-area="Identity" asp-page="/Account/Logout" method="post">
+							<button type="submit" class="nav-link text-light"
+									style="color:white; font-weight:bold; font-size:16px; background:none; border:none;">
+								Logout
+							</button>
+						</form>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+}

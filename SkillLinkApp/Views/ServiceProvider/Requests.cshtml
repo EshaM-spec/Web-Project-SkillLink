@@ -1,0 +1,95 @@
+﻿@model List<SkillLinkApp.Models.ProviderRequestViewModel>
+<html>
+    <body>
+    <div class="container mt-5">
+        <h2>Available Customer Requests</h2>
+        <p class="text-muted">Pending requests matching your service.</p>
+
+        @if (Model == null || !Model.Any())
+        {
+            <div class="alert alert-info mt-4">
+                No pending requests are available for your service right now.
+            </div>
+        }
+        else
+        {
+            @foreach (var request in Model)
+            {
+                <div class="card shadow-sm mb-4 p-3">
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">@request.ServiceName</h5>
+                        <span class="badge bg-warning text-dark rounded-pill px-3 py-2">
+                            Pending
+                        </span>
+                    </div>
+
+                    <hr />
+
+                    <p><strong>Description:</strong> @request.Description</p>
+
+                    <p><strong>Address:</strong> @request.ServiceAddress</p>
+
+                    <p>
+                        <strong>Requested Date:</strong>
+                        @(request.PreferredDate?.ToString("dd MMM yyyy") ?? "Not specified")
+                    </p>
+
+                    <p>
+                        <strong>Preferred Time:</strong>
+                        @(request.PreferredTime?.ToString(@"hh\:mm") ?? "Not specified")
+                    </p>
+
+                    <p>
+                        <strong>Posted On:</strong>
+                        @request.CreatedAt.ToString("dd MMM yyyy")
+                    </p>
+                    <p>
+                        <strong>Location:</strong>
+                        @request.CustomerCity, @request.CustomerCountry
+                    </p>
+                    <div class="text-end mt-3">
+                        <a asp-controller="ServiceProvider"
+                           asp-action="GenerateOffer"
+                           asp-route-requestId="@request.RequestId"
+                           class="btn"
+                           style="background-color:#183B32; color:white;">
+                            Generate Offer
+                        </a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+
+
+    </body>
+</html>
+@section selected {
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow ">
+        <div style="background-color:#183B32;   " class="container-fluid w-100">
+            <a class="navbar-brand ms-3" asp-area="" asp-controller="Customer" asp-action="Home" style="color:white;font-weight:bold;font-size:20px ">SkillLink</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="ServiceProvider" asp-action="Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="ServiceProvider" asp-action="Requests" style="color:white;font-weight:bold; font-size:16px"><span class="badge  text-light " style="background-color:#D9E8AE;color:white;font-weight:bold;font-size:14px">Requests</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="ServiceProvider" asp-action="MyBookings" style=" color:white;font-weight:bold; font-size:16px">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="ServiceProvider" asp-action="Profile" style="color:white;font-weight:bold; font-size:16px">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+}

@@ -1,0 +1,61 @@
+﻿@model List<SkillLinkApp.Models.CustomerOfferViewModel>
+<html>
+    <body>
+    <div class="container mt-5">
+        <h3>Received Offers</h3>
+
+        @if (Model == null || !Model.Any())
+        {
+            <p>No offers have been submitted yet.</p>
+        }
+        else
+        {
+            @foreach (var offer in Model)
+            {
+                <div class="card p-3 mb-3">
+                    <h5>@offer.WorkerName</h5>
+
+                    <p>Price: Rs. @offer.PriceOffer</p>
+
+                    <p>Proposed Time: @offer.ProposedTime</p>
+
+                    <p>Estimated Duration: @offer.EstimatedDuration minutes</p>
+
+                    <p>Message: @offer.Message</p>
+
+                    <p>Status: @offer.Status</p>
+                </div>
+            }
+        }
+    </div>
+    </body>
+</html>
+
+
+@section selected {
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow ">
+        <div style="background-color:#183B32;   " class="container-fluid w-100">
+            <a class="navbar-brand ms-3" asp-area="" asp-controller="Customer" asp-action="Home" style="color:white;font-weight:bold;font-size:20px ">SkillLink</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Customer" asp-action="Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Customer" asp-action="Requests" style="color:white;font-weight:bold; font-size:16px"><span class="badge  text-light " style="background-color:#D9E8AE;color:white;font-weight:bold;font-size:14px">Requests</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Customer" asp-action="MyBookings" style=" color:white;font-weight:bold; font-size:16px">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Customer" asp-action="Profile" style="color:white;font-weight:bold; font-size:16px">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+}

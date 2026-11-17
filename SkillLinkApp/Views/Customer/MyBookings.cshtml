@@ -1,0 +1,93 @@
+﻿@model List<SkillLinkApp.Models.BookingViewModel>
+
+<html>
+<body>
+    <div class="container mt-5">
+        <h2>My Bookings</h2>
+
+        @if (Model == null || !Model.Any())
+        {
+            <p>You haven't made any bookings yet.</p>
+        }
+        else
+        {
+            @foreach (var booking in Model)
+            {
+                var statusClass = booking.Status switch
+                {
+                    "Pending" => "bg-warning text-dark",
+                    "Confirmed" => "bg-primary",
+                    "InProgress" => "bg-info text-dark",
+                    "Completed" => "bg-success",
+                    "Cancelled" => "bg-danger",
+                    _ => "bg-secondary"
+                };
+
+                <div class="card mb-3 p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">@booking.ServiceName</h5>
+
+                        <span class="badge rounded-pill px-3 py-2 fs-6 @statusClass">
+                            @booking.Status
+                        </span>
+                    </div>
+
+                    <p class="mt-3">@booking.Description</p>
+
+                    <p>
+                        <strong>Address:</strong> @booking.ServiceAddress
+                    </p>
+
+                    <p>
+                        <strong>Worker:</strong>
+                        @(booking.WorkerName ?? "Not assigned yet")
+                    </p>
+
+                    <p>
+                        <strong>Requested on:</strong>
+                        @booking.CreatedAt.ToString("dd MMM yyyy")
+                    </p>
+                    @if (booking.Status == "Pending")
+                    {
+                        <a asp-controller="Customer"
+                           asp-action="Offers"
+                           asp-route-requestId="@booking.RequestId"
+                           class="btn"
+                           style="background-color:#183B32; color:white;">
+                            View Offers
+                        </a>
+                    }
+                </div>
+            }
+        }
+    </div>
+</body>
+</html>
+
+@section selected {
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow ">
+        <div style="background-color:#183B32;   " class="container-fluid w-100">
+            <a class="navbar-brand ms-3" asp-area="" asp-controller="Customer" asp-action="Home" style="color:white;font-weight:bold;font-size:20px ">SkillLink</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Customer" asp-action="Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Customer" asp-action="Requests" style="color:white;font-weight:bold; font-size:16px">Requests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Customer" asp-action="MyBookings" style=" color:white;font-weight:bold; font-size:16px"><span class="badge  text-light " style="background-color:#D9E8AE;color:white;font-weight:bold;font-size:14px">My Bookings</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="Customer" asp-action="Profile" style="color:white;font-weight:bold; font-size:16px">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+}

@@ -1,0 +1,118 @@
+﻿
+@model SkillLinkApp.Models.ServiceRequest
+<html>
+    <body>
+        <div class="container mt-5">
+
+    <h2 class="text-center mb-4"
+        style="color:#183B32; font-family:fraunces;">
+        Create Service Request
+    </h2>
+
+    <div class="card shadow p-4 mx-auto" style="max-width:700px;">
+
+        <form asp-controller="Customer"
+              asp-action="CreateRequest"
+              method="post">
+
+            <input type="hidden" asp-for="ServiceId" />
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Service Name</label>
+                <input class="form-control"
+                       value="@ViewBag.ServiceName"
+                       readonly />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label fw-bold">
+                    Describe the service you need
+                </label>
+                <textarea asp-for="Description"
+                          class="form-control"
+                          rows="4"
+                          placeholder="Explain your problem or requirements..."
+                          required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ServiceAddress" class="form-label fw-bold">
+                    Service Address
+                </label>
+                <textarea asp-for="ServiceAddress"
+                          class="form-control"
+                          rows="2"
+                          placeholder="Enter the address where service is required..."
+                          required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="PreferredDate" class="form-label fw-bold">
+                    Preferred Date (Optional)
+                </label>
+                <input asp-for="PreferredDate"
+                       type="date"
+                       class="form-control" />
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="PreferredTime" class="form-label fw-bold">
+                    Preferred Time (Optional)
+                </label>
+                <input asp-for="PreferredTime"
+                       type="time"
+                       class="form-control" />
+            </div>
+
+            <div class="text-center">
+                <button type="submit"
+                        class="btn px-5"
+                        style="background-color:#183B32; color:white; font-weight:bold;">
+                    Submit Request
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+    </body>
+</html>
+@section selected {
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow ">
+        <div style="background-color:#183B32;   " class="container-fluid w-100">
+            <a class="navbar-brand ms-3" asp-area="" asp-controller="" asp-action="Home" style="color:white;font-weight:bold;font-size:20px ">SkillLink</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="ServiceProvider" asp-action="Home">
+                            <span class="badge  text-light " style="background-color:#D9E8AE;color:white;font-weight:bold;font-size:14px">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="ServiceProvider" asp-action="Requests" style="color:white;font-weight:bold; font-size:16px">Requests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="ServiceProvider" asp-action="MyBookings" style=" color:white;font-weight:bold; font-size:16px">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="ServiceProvider" asp-action="Profile" style="color:white;font-weight:bold; font-size:16px">Profile</a>
+                    </li>
+                    <li class="nav-item ms-auto">
+                        <form asp-area="Identity" asp-page="/Account/Logout" method="post">
+                            <button type="submit" class="nav-link text-light"
+                                    style="color:white; font-weight:bold; font-size:16px; background:none; border:none;">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+}

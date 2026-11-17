@@ -1,0 +1,149 @@
+﻿@model SkillLinkApp.Models.GenerateOfferViewModel
+
+<html>
+	<body>
+
+    <div class="container mt-5">
+        <div class="card shadow-sm p-4">
+
+            <h2>Generate Offer</h2>
+            <p class="text-muted">Submit your price and availability to the customer.</p>
+
+            <hr />
+
+            <form asp-controller="ServiceProvider"
+                  asp-action="GenerateOffer"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" asp-for="RequestId" />
+
+                <h5>Customer Request Details</h5>
+
+                <div class="mb-3">
+                    <label class="form-label">Service</label>
+                    <input class="form-control"
+                           value="@Model.ServiceName"
+                           readonly />
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="PreferredDate" class="form-label">
+                            Requested Date
+                        </label>
+
+                        <input asp-for="PreferredDate"
+                               type="text"
+                               value="@Model.PreferredDate?.ToString("dd MMM yyyy")"
+                               class="form-control"
+                               readonly />
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="PreferredTime" class="form-label">
+                            Customer's Preferred Time
+                        </label>
+
+                        <input type="text"
+                               value="@Model.PreferredTime?.ToString(@"hh\:mm")"
+                               class="form-control"
+                               readonly />
+                    </div>
+                </div>
+
+                <hr />
+
+                <h5>Your Offer Details</h5>
+
+                <div class="mb-3">
+                    <label asp-for="PriceOffer" class="form-label">
+                        Your Price (PKR)
+                    </label>
+                    <input asp-for="PriceOffer"
+                           type="number"
+                           step="0.01"
+                           min="0.01"
+                           class="form-control"
+                           placeholder="Enter your price"
+                           required />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ProposedTime" class="form-label">
+                        Your Available Time
+                    </label>
+                    <input asp-for="ProposedTime"
+                           type="time"
+                           class="form-control"
+                           required />
+                    <small class="text-muted">
+                        Your proposed time must be on the customer's requested date.
+                    </small>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="EstimatedDuration" class="form-label">
+                        Estimated Duration (Minutes)
+                    </label>
+                    <input asp-for="EstimatedDuration"
+                           type="number"
+                           min="1"
+                           class="form-control"
+                           placeholder="e.g. 60"
+                           required />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Message" class="form-label">
+                        Additional Message
+                    </label>
+                    <textarea asp-for="Message"
+                              class="form-control"
+                              rows="3"
+                              placeholder="Write any additional details for the customer..."></textarea>
+                </div>
+
+                <div class="text-end">
+                    <button type="submit"
+                            class="btn"
+                            style="background-color:#183B32;color:white;">
+                        Submit Offer
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+	</body>
+</html>
+
+@section selected {
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow ">
+        <div style="background-color:#183B32;   " class="container-fluid w-100">
+            <a class="navbar-brand ms-3" asp-area="" asp-controller="Customer" asp-action="Home" style="color:white;font-weight:bold;font-size:20px ">SkillLink</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="ServiceProvider" asp-action="Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="ServiceProvider" asp-action="Requests" style="color:white;font-weight:bold; font-size:16px"><span class="badge  text-light " style="background-color:#D9E8AE;color:white;font-weight:bold;font-size:14px">Requests</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="ServiceProvider" asp-action="MyBookings" style=" color:white;font-weight:bold; font-size:16px">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light ms-3" asp-area="" asp-controller="ServiceProvider" asp-action="Profile" style="color:white;font-weight:bold; font-size:16px">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+}
